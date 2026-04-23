@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HorizonHub</title>
+    <link rel="stylesheet" href="estilos/pagina-inicio.css" />
+  </head>
+  <body>
+    <!-- barra de Navegacion -->
+    <nav>
+      <!-- logo de la pagina -->
+      <a href="pagina-inicio-loggeada.html" class="nav-logo">Horizon<span>Hub</span></a>
+
+      <!-- enlaces -->
+      <div class="nav-enlaces">
+        <a href="pagina-inicio-loggeada.html" class="activo">Inicio</a> <!-- te lleva al inicio -->
+        <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+        <a href="estudiantes.html">Estudiantes</a> <!-- te lleva a la pagina de estudiantes -->
+        <a href="pagina-busqueda.html">Busqueda</a> <!-- te lleva a la pagina de busqueda -->
+      </div>
+
+      <!-- botones acceso -->
+      <div class="nav-botones">
+        <a href="perfil.html" class="boton-solido">Ir al Perfil</a> <!-- te lleva a la pagina de perfil -->
+        <button type="button" class="boton-cancelar" onclick="cerrarSesion()">Cerrar Sesión</button> <!-- cierras sesion -->
+      </div>
+    </nav>
+
+    <!-- hero con buscador-->
+    <div class="hero">
+      <!-- texto del hero-->
+      <div class="hero-texto">
+        <h1>Portafolios estudiantiles</h1>
+        <p>Explora proyectos y perfiles universitarios.</p>
+      </div>
+
+      <!-- buscador -->
+      <a href="busqueda.html" class="hero-busqueda"> <!-- si le das click al buscador te manda a la pagina de busqueda -->
+        <span class="icono-busqueda">⌕</span>
+        <input type="text" placeholder="Busca por nombre o habilidad..." />
+      </a>
+    </div>
+
+    <!-- seccion principal -->
+    <div class="seccion-principal">
+      <main class="contenido">
+
+        <div class="tarjetas" id="contenedor-tarjetas">
+          <!-- aqui se van a cargar las tarjetas de los estudiantes y proyectos -->
+        </div>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <span>HorizonHub © 2026</span>
+      <span>x estudiantes · x proyectos · x tecnologías</span>
+    </footer>
+
+    <script src="scripts/paginaInicio.js"></script>
+  </body>
+</html>

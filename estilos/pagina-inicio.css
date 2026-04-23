@@ -1,0 +1,376 @@
+/* quita margenes y padding de todo*/
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* variables de colores */
+:root {
+  --fondo1: #111110;
+  --fondo2: #1a1a18;
+  --fondo3: #222220;
+  --borde1: rgba(255, 255, 255, 0.08);
+  --borde2: rgba(255, 255, 255, 0.14);
+  --texto1: #f0ede8;
+  --texto2: #9e9b94;
+  --texto3: #5e5c57;
+  --resaltado1: #c17a3a;
+  --resaltado2: #7a5fc4;
+  --resaltado-dim: #3d2a10;
+  --morado-dim: #2a2040;
+  --radio: 10px;
+  --radio-lg: 14px;
+}
+
+/* estilos base */
+body {
+  background: var(--fondo1);
+  color: var(--texto1);
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  min-height: 100vh; /* asegura que el body tenga al menos la altura de la pantalla */
+}
+
+/* barra de navegacion */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 58px;
+  border-bottom: 1px solid var(--borde1);
+  position: sticky;
+  top: 0;
+  background: var(--fondo1);
+  z-index: 100; /* asegura que la barra este por encima de otros elementos al dar para abajo */
+}
+
+/* logo */
+.nav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--texto1);
+  text-decoration: none;
+}
+
+/* color de Hub en el logo */
+.nav-logo span {
+  color: var(--resaltado1);
+}
+
+/* div enlaces */
+.nav-enlaces {
+  display: flex;
+  gap: 2px;
+}
+
+/* enlaces */
+.nav-enlaces a {
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--texto2);
+  padding: 7px 16px;
+  border-radius: var(--radio);
+}
+
+/* enlace al pasar el mouse */
+.nav-enlaces a:hover {
+  background: var(--fondo3);
+  color: var(--texto1);
+}
+
+/* enlace pagina actual */
+.nav-enlaces a.activo {
+  background: var(--fondo3);
+  color: var(--texto1);
+}
+
+/* div botones */
+.nav-botones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* boton borde */
+.boton-borde {
+  font-size: 13px;
+  color: var(--texto2);
+  padding: 7px 16px;
+  border: 1px solid var(--borde2);
+  border-radius: var(--radio);
+  text-decoration: none;
+}
+
+.boton-borde:hover {
+  background: var(--fondo3);
+  color: var(--texto1);
+}
+
+/* boton solido */
+.boton-solido {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--resaltado1);
+  padding: 7px 18px;
+  border-radius: var(--radio);
+  text-decoration: none;
+}
+
+.boton-solido:hover {
+  opacity: 0.88; /* cuando el raton esta encima se hace un poquito transparente */
+}
+
+/* boton cancelar */
+.boton-cancelar {
+    font-size: 13px;
+    color: var(--texto2);
+    padding: 8px 16px;
+    border: 1px solid var(--borde2);
+    border-radius: var(--radio);
+    cursor: pointer;
+    background: transparent;
+    font-family: "Times New Roman", serif;
+}
+
+/* hero */ /* el hero es la seccion grande de arriba con el titulo, subtitulo y buscador */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 22px 32px;
+  border-bottom: 1px solid var(--borde1);
+  background: var(--fondo2);
+}
+
+/* hero titulo y subtitulo */
+.hero-texto h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--texto1);
+}
+
+.hero-texto p {
+  font-size: 14px;
+  color: var(--texto2);
+  margin-top: 4px;
+}
+
+/* buscador */
+.hero-busqueda {
+  flex: 1; /* hace que el buscador tome todo el espacio disponible a la derecha del texto */
+  max-width: 480px;
+  position: relative; /* para posicionar el icono de busqueda dentro del input */
+  text-decoration: none;
+}
+
+/* input buscador */
+.hero-busqueda input {
+  width: 100%;
+  background: var(--fondo3);
+  border: 1px solid var(--borde2);
+  border-radius: var(--radio-lg);
+  padding: 10px 16px 10px 42px;
+  font-size: 13px;
+  font-family: "Times New Roman", serif;
+  color: var(--texto1);
+  cursor: pointer; /* cambia el cursor a una mano cuando se pasa por encima del input */
+}
+
+.hero-busqueda input::placeholder {
+  color: var(--texto3);
+}
+
+/* icono buscador */
+.icono-busqueda {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--texto3);
+  font-size: 16px;
+  pointer-events: none; /* hace que el icono no interfiera con los clics en el input */
+}
+
+/* seccion principal */
+.seccion-principal {
+  min-height: calc(100vh - 58px - 65px - 53px); /* altura de la pantalla menos la barra de navegacion, el hero y el footer */
+}
+
+/* contenido */
+.contenido {
+  padding: 22px 28px;
+}
+
+/* tarjetas */
+.tarjetas {
+  display: grid; /* grid para organizar las tarjetas en filas y columnas */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columnas de igual tamaño */
+  gap: 14px;
+}
+
+/* footer */
+footer {
+  border-top: 1px solid var(--borde1);
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--texto3);
+  font-size: 12px;
+}
+
+/* tarjetas */
+.tarjeta-proyecto,
+.tarjeta-estudiante {
+  background: var(--fondo2);
+  border: 1px solid var(--borde1);
+  border-radius: var(--radio-lg);
+  overflow: hidden; /* hace que el contenido no salga de los bordes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* borde de arriba naranja para proyectos */
+.tarjeta-proyecto {
+  border-top: 2px solid var(--resaltado1); 
+}
+
+.tarjeta-proyecto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(193, 122, 58, 0.14);
+}
+
+/* borde de arriba morado para estudiantes */
+.tarjeta-estudiante {
+  border-top: 2px solid var(--resaltado2);
+}
+
+/* zona 1 — etiqueta */
+.tarjeta-etiqueta {
+  height: 38px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* etiqueta proyecto */
+.etiqueta-proyecto {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--resaltado-dim);
+  color: var(--resaltado1);
+  border: 1px solid rgba(193, 122, 58, 0.25);
+}
+
+/* etiqueta estudiante */
+.etiqueta-estudiante {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--morado-dim);
+  color: #a98de8;
+  border: 1px solid rgba(122, 95, 196, 0.25);
+}
+
+/* zona 2 — imagen */
+.tarjeta-imagen {
+  height: 110px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+}
+
+/* imagen del proyecto */
+.imagen-proyecto {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* avatar del estudiante */
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  border: 1px solid var(--borde2);
+}
+
+/* zona 3 — nombre */
+.tarjeta-nombre {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+}
+
+.nombre-tarjeta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto1);
+  white-space: nowrap; /* hace que el nombre sea una sola linea */
+  overflow: hidden;
+  text-overflow: ellipsis; /* si el nombre es muy largo se corta con ... */
+  width: 100%;
+}
+
+/* zona 4 — subtitulo */
+.tarjeta-sub {
+  height: 28px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+}
+
+.sub-tarjeta {
+  font-size: 11px;
+  color: var(--texto2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+/* zona 5 — tags */
+.tarjeta-tags {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px 12px;
+  flex-wrap: wrap; /* si un tag no cabe se va para abajo */
+  gap: 5px;
+  overflow: hidden;
+}
+
+/* tag individual */
+.tag {
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: var(--fondo3);
+  color: var(--texto2);
+  border: 1px solid var(--borde1);
+}

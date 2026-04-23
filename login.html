@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorizonHub</title>
+    <link rel="stylesheet" href="estilos/login.css">
+</head>
+<body>
+    <!-- barra de Navegacion -->
+    <nav>
+        <!-- logo de la pagina -->
+       <a href="pagina-inicio.html" class="nav-logo">Horizon<span>Hub</span></a>
+       
+       <!-- enlaces -->
+        <div class="nav-enlaces">
+            <a href="pagina-inicio.html" class="activo">Inicio</a> <!-- te lleva al inicio -->
+            <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+            <a href="estudiantes.html">Estudiantes</a> <!-- te lleva a la pagina de estudiantes -->
+            <a href="pagina-busqueda.html">Busqueda</a> <!-- te lleva a la pagina de busqueda -->
+        </div>
+       
+        <!-- botones acceso -->
+         <div class="nav-botones">
+            <a href="registro.html" class="boton-solido">Registrarse</a> <!-- te lleva a la pagina de registro -->
+        </div>
+    </nav>
+
+    <!-- seccion principal -->
+    <div class="seccion-login">
+
+        <!-- tarjeta del formulario -->
+        <div class="tarjeta-login">
+
+            <!-- logo -->
+            <div class="logo-login">Horizon<span>Hub</span></div>
+
+            <!-- titulo y subtitulo -->
+            <h1 class="titulo-login">Bienvenido de nuevo</h1>
+            <p class="subtitulo-login">Inicia sesión para acceder a tu cuenta</p>
+
+            <!-- campo correo -->
+            <div class="campo">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="a12345678@unisierra.edu.mx">
+            </div>
+
+            <!-- campo contrasena -->
+            <div class="campo">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="••••••••">
+            </div>
+
+            <!-- boton iniciar sesion -->
+            <button class="boton-login" onclick="iniciarSesion()">Iniciar sesión</button>
+
+            <!-- separador -->
+            <div class="separador">
+                <hr><span>¿no tienes cuenta?</span><hr>
+            </div>
+
+            <!-- enlace registro -->
+            <div class="login-enlace">
+                <a href="registro.html">Crear una cuenta nueva</a> <!-- te lleva a la pagina de registro -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <span>HorizonHub © 2026</span>
+        <span>x estudiantes · x proyectos · x tecnologías</span>
+    </footer>
+
+    <script src="scripts/login.js"></script>
+</body>
+</html>

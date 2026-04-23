@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorizonHub — Mi Perfil</title>
+    <link rel="stylesheet" href="estilos/perfil.css">
+</head>
+<body>
+
+    <!-- barra de navegacion -->
+    <nav>
+        <a href="pagina-inicio-loggeada.html" class="nav-logo">Horizon<span>Hub</span></a> <!-- te lleva al inicio -->
+        <div class="nav-enlaces">
+            <a href="pagina-inicio-loggeada.html">Inicio</a> <!-- te lleva al inicio -->
+            <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+            <a href="estudiantes.html">Estudiantes</a> <!-- te lleva a la pagina de estudiantes -->
+        </div>
+        <div class="nav-botones">
+            <button class="boton-cancelar" onclick="cerrarSesion()">Cerrar sesión</button> <!-- cierras sesion -->
+        </div>
+    </nav>
+
+    <!-- secciones del perfil -->
+    <div class="perfil-layout">
+
+        <!-- sidebar -->
+        <aside class="perfil-sidebar">
+
+            <!-- avatar -->
+            <div class="perfil-avatar" id="perfil-avatar"></div>
+
+            <!-- datos -->
+            <div class="perfil-nombre" id="perfil-nombre"></div>
+            <div class="perfil-dato" id="perfil-carrera"></div>
+            <div class="perfil-dato" id="perfil-semestre"></div>
+
+            <!-- botones -->
+            <div class="perfil-acciones">
+                <button class="boton-editar" onclick="abrirEditarPerfil()">Editar perfil</button>                
+                <button class="boton-cv" id="btn-cv">Subir CV</button>
+            </div>
+
+            <!-- separador -->
+            <div class="sidebar-separador"></div>
+
+            <!-- navegacion -->
+            <a href="#" class="sidebar-item activo" data-seccion="proyectos">Proyectos</a> <!-- es para abrir la seccion de proyectos y es la de defecto -->
+            <a href="#" class="sidebar-item" data-seccion="habilidades">Habilidades</a> <!-- es para abrir la seccion de habilidades -->
+            <a href="#" class="sidebar-item" data-seccion="experiencias">Experiencia</a> <!-- es para abrir la seccion de experiencias -->
+
+        </aside>
+
+        <!-- contenido principal -->
+        <main class="perfil-contenido">
+
+            <!-- seccion proyectos -->
+            <div class="seccion" id="seccion-proyectos">
+                <div class="seccion-header">
+                    <h2>Mis proyectos</h2>
+                    <button class="boton-agregar" id="btn-nuevo-proyecto" onclick="agregarProyecto()">+ Nuevo</button> <!-- abre el modal de proyectos -->
+                </div>
+                <div id="lista-proyectos">
+                    <!-- aqui se van a cargar los proyectos del estudiante -->
+                </div>
+            </div>
+
+            <!-- seccion habilidades -->
+            <div class="seccion oculto" id="seccion-habilidades">
+                <div class="seccion-header">
+                    <h2>Mis habilidades</h2>
+                    <button class="boton-agregar" id="btn-nueva-habilidad" onclick="agregarHabilidad()">+ Agregar</button> <!-- abre el modal de habilidades -->
+                </div>
+                <div id="lista-habilidades">
+                    <!-- aqui se van a cargar las habilidades del estudiante -->
+                </div>
+            </div>
+
+            <!-- seccion experiencias -->
+            <div class="seccion oculto" id="seccion-experiencias">
+                <div class="seccion-header">
+                    <h2>Mi experiencia</h2>
+                    <button class="boton-agregar" id="btn-nueva-experiencia" onclick="agregarExperiencia()">+ Agregar</button> <!-- abre el modal de experiencias -->
+                </div>
+                <div id="lista-experiencias">
+                    <!-- aqui se van a cargar las experiencias del estudiante -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- modal editar perfil -->
+    <div class="modal-fondo oculto" id="modal-editar-perfil">
+        <div class="modal">
+
+            <div class="modal-header">
+                <h3>Editar perfil</h3>
+                <button class="modal-cerrar" onclick="cerrarModalEditarPerfil()">✕</button> <!-- cierra el modal de editar perfil -->
+            </div>
+
+            <!-- campos del formulario del perfil -->
+            <div class="modal-cuerpo">
+
+                <div class="campo">
+                    <label for="editar-nombre">Nombre completo</label>
+                    <input type="text" id="editar-nombre" placeholder="Tu nombre">
+                </div>
+
+                <div class="campo">
+                    <label for="editar-carrera">Carrera</label>
+                    <input type="text" id="editar-carrera" placeholder="Ing. en Sistemas">
+                </div>
+
+                <div class="campo">
+                    <label for="editar-semestre">Semestre</label>
+                    <input type="number" id="editar-semestre" placeholder="4" min="1" max="12">
+                </div>
+
+                <div class="campo">
+                    <label for="editar-descripcion">Descripción</label>
+                    <textarea id="editar-descripcion" placeholder="Cuentanos sobre ti..."></textarea>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="boton-cancelar" onclick="cerrarModalEditarPerfil()">Cancelar</button> <!-- cierra el modal de editar perfil -->
+                <button class="boton-guardar" onclick="guardarEditarPerfil()">Guardar</button> <!-- guarda los cambios del perfil -->
+            </div>
+        </div>
+    </div>
+
+    <!-- modal nuevo proyecto -->
+    <div class="modal-fondo oculto" id="modal-proyecto">
+        <div class="modal">
+
+            <!-- header del modal -->
+            <div class="modal-header">
+                <h3>Nuevo proyecto</h3>
+                <button class="modal-cerrar" id="cerrar-modal-proyecto" onclick="cerrarModal()">✕</button> <!-- cierra el modal de nuevo proyecto -->
+            </div>
+
+            <!-- campos -->
+            <div class="modal-cuerpo">
+
+                <div class="campo">
+                    <label for="proyecto-nombre">Nombre del proyecto</label>
+                    <input type="text" id="proyecto-nombre" placeholder="Mi proyecto">
+                </div>
+
+                <div class="campo">
+                    <label for="proyecto-descripcion">Descripción</label>
+                    <textarea id="proyecto-descripcion" placeholder="Describe tu proyecto..."></textarea>
+                </div>
+
+                <div class="campo">
+                    <label for="proyecto-repositorio">URL del repositorio</label>
+                    <input type="text" id="proyecto-repositorio" placeholder="https://github.com/...">
+                </div>
+
+                <div class="campo">
+                    <label>Tecnologías</label>
+                    <select id="proyecto-tecnologias">
+                        <option value="">Selecciona una tecnología...</option>
+                        <option value="HTML">HTML</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="TypeScript">TypeScript</option>
+                        <option value="React">React</option>
+                        <option value="Vue">Vue</option>
+                        <option value="Angular">Angular</option>
+                        <option value="Node.js">Node.js</option>
+                        <option value="Express">Express</option>
+                        <option value="Python">Python</option>
+                        <option value="Django">Django</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Java">Java</option>
+                        <option value="Laravel">Laravel</option>
+                        <option value="MySQL">MySQL</option>
+                        <option value="PostgreSQL">PostgreSQL</option>
+                        <option value="SQLite">SQLite</option>
+                        <option value="MongoDB">MongoDB</option>
+                        <option value="Firebase">Firebase</option>
+                        <option value="Git">Git</option>
+                        <option value="Docker">Docker</option>
+                        <option value="Figma">Figma</option>
+                    </select>
+
+                    <!-- tags seleccionados -->
+                    <div class="tags-seleccionados" id="tags-tecnologias">
+                        <!-- aqui se van a mostrar las tecnologias seleccionadas -->
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- botones -->
+            <div class="modal-footer">
+                <button class="boton-cancelar" id="cancelar-proyecto" onclick="cerrarModal()">Cancelar</button> <!-- cierra el modal de nuevo proyecto -->
+                <button class="boton-guardar" id="guardar-proyecto" onclick="guardarProyecto()">Guardar</button> <!-- guarda el nuevo proyecto -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- modal nueva habilidad -->
+<div class="modal-fondo oculto" id="modal-habilidad">
+    <div class="modal">
+
+        <div class="modal-header">
+            <h3>Nueva habilidad</h3>
+            <button class="modal-cerrar" onclick="cerrarModalHabilidad()">✕</button> <!-- cierra el modal de nueva habilidad -->
+        </div>
+
+        <!-- campos -->
+        <div class="modal-cuerpo">
+
+            <div class="campo">
+                <select id="habilidad-nombre">
+                    <option value="">Selecciona una habilidad...</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="TypeScript">TypeScript</option>
+                    <option value="React">React</option>
+                    <option value="Vue">Vue</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="Express">Express</option>
+                    <option value="Python">Python</option>
+                    <option value="Django">Django</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Java">Java</option>
+                    <option value="Laravel">Laravel</option>
+                    <option value="MySQL">MySQL</option>
+                    <option value="PostgreSQL">PostgreSQL</option>
+                    <option value="SQLite">SQLite</option>
+                    <option value="MongoDB">MongoDB</option>
+                    <option value="Firebase">Firebase</option>
+                    <option value="Git">Git</option>
+                    <option value="Docker">Docker</option>
+                    <option value="Figma">Figma</option>
+                    <option value="Comunicación">Comunicación</option>
+                    <option value="Trabajo en equipo">Trabajo en equipo</option>
+                    <option value="Resolución de problemas">Resolución de problemas</option>
+                    <option value="Pensamiento crítico">Pensamiento crítico</option>
+                    <option value="Creatividad">Creatividad</option>
+                    <option value="Gestión del tiempo">Gestión del tiempo</option>
+                    <option value="Adaptabilidad">Adaptabilidad</option>
+                    <option value="Liderazgo">Liderazgo</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="habilidad-nivel">Nivel</label>
+                <select id="habilidad-nivel">
+                    <option value="">Selecciona un nivel...</option>
+                    <option value="Básico">Básico</option>
+                    <option value="Intermedio">Intermedio</option>
+                    <option value="Avanzado">Avanzado</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="boton-cancelar" onclick="cerrarModalHabilidad()">Cancelar</button> <!-- cierra el modal de nueva habilidad -->
+            <button class="boton-guardar" onclick="guardarHabilidad()">Guardar</button> <!-- guarda la nueva habilidad -->
+        </div>
+    </div>
+</div>
+
+<!-- modal experiencia -->
+<div class="modal-fondo oculto" id="modal-experiencia">
+    <div class="modal">
+
+        <div class="modal-header">
+            <h3>Nueva experiencia</h3>
+            <button class="modal-cerrar" onclick="cerrarModalExperiencia()">✕</button> <!-- cierra el modal de nueva experiencia -->
+        </div>
+
+        <!-- campos -->
+        <div class="modal-cuerpo">
+
+            <div class="campo">
+                <label for="experiencia-nombre">Título</label>
+                <input type="text" id="experiencia-nombre" placeholder="Curso de React...">
+            </div>
+
+            <div class="campo">
+                <label for="experiencia-institucion">Institución</label>
+                <input type="text" id="experiencia-institucion" placeholder="Udemy, Coursera...">
+            </div>
+
+            <div class="campo">
+                <label for="experiencia-tipo">Tipo</label>
+                <select id="experiencia-tipo">
+                    <option value="">Selecciona un tipo...</option>
+                    <option value="Curso">Curso</option>
+                    <option value="Certificado">Certificado</option>
+                    <option value="Hackathon">Hackathon</option>
+                    <option value="Proyecto escolar">Proyecto escolar</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="experiencia-inicio">Fecha de inicio</label>
+                <input type="date" id="experiencia-inicio">
+            </div>
+
+            <div class="campo">
+                <label for="experiencia-fin">Fecha de fin</label>
+                <input type="date" id="experiencia-fin" placeholder="En caso de estar terminada.">
+            </div>
+
+            <div class="campo">
+                <label for="experiencia-descripcion">Descripción</label>
+                <textarea id="experiencia-descripcion" placeholder="Describe tu expernencia..."></textarea>
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="boton-cancelar" onclick="cerrarModalExperiencia()">Cancelar</button> <!-- cierra el modal de nueva experiencia -->
+            <button class="boton-guardar" onclick="guardarExperiencia()">Guardar</button> <!-- guarda la nueva experiencia -->
+        </div>
+
+    </div>
+</div>
+
+    <!-- footer -->
+    <footer>
+        <span>HorizonHub © 2026</span>
+        <span>x estudiantes · x proyectos · x tecnologías</span>
+    </footer>
+
+    <script src="scripts/perfil.js"></script>
+    <script src="scripts/proyectos.js"></script>
+    <script src="scripts/habilidades.js"></script>
+    <script src="scripts/experiencias.js"></script>
+</body>
+</html>

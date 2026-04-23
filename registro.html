@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorizonHub — Registro</title>
+    <link rel="stylesheet" href="estilos/registro.css">
+</head>
+<body>
+
+    <!-- barra de navegacion -->
+    <nav>
+        <a href="pagina-inicio.html" class="nav-logo">Horizon<span>Hub</span></a> <!-- te lleva al inicio -->
+        <div class="nav-enlaces">
+            <a href="pagina-inicio.html">Inicio</a> <!-- te lleva al inicio -->
+            <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+            <a href="estudiantes.html">Estudiantes</a> <!-- te lleva a la pagina de estudiantes -->
+        </div>
+        <div class="nav-botones"> 
+            <a href="login.html" class="boton-borde">Iniciar Sesión</a> <!-- te lleva a la pagina de login -->
+        </div>
+    </nav>
+
+    <!-- seccion principal -->
+    <div class="seccion-registro">
+
+        <!-- tarjeta del formulario -->
+        <div class="tarjeta-registro">
+
+            <!-- logo -->
+            <div class="logo-registro">Horizon<span>Hub</span></div>
+
+            <!-- titulo y subtitulo -->
+            <h1 class="titulo-registro">Crear cuenta</h1>
+            <p class="subtitulo-registro">Empieza a mostrar tu trabajo</p>
+
+            <!-- campo nombre -->
+            <div class="campo">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" placeholder="Tu nombre">
+            </div>
+
+            <!-- campo correo -->
+            <div class="campo">
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" placeholder="a12345678@unisierra.edu.mx">
+            </div>
+
+            <!-- campo contrasena -->
+            <div class="campo">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" placeholder="Minimo 8 caracteres">
+            </div>
+
+            <!-- campo confirmar contrasena -->
+            <div class="campo">
+                <label for="confirmarContrasena">Confirmar contraseña</label>
+                <input type="password" id="confirmarContrasena" placeholder="Minimo 8 caracteres">
+            </div>
+
+            <!-- boton crear cuenta -->
+            <button class="boton-registro" onclick="registrar()">Crear cuenta</button> <!-- se crea la cuenta si cumple las condiciones -->
+
+            <!-- separador -->
+            <div class="separador">
+                <hr><span>¿ya tienes cuenta?</span><hr>
+            </div>
+
+            <!-- enlace login -->
+            <div class="registro-enlace">
+                <a href="login.html">Iniciar sesión</a> <!-- te lleva a la pagina de login -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <span>HorizonHub © 2026</span>
+        <span>x estudiantes · x proyectos · x tecnologías</span>
+    </footer>
+
+    <script src="scripts/registro.js"></script>
+</body>
+</html>

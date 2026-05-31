@@ -1,0 +1,251 @@
+/* quita margenes y padding de todo*/
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* variables de colores */
+:root {
+    --fondo1: #111110;
+    --fondo2: #1a1a18;
+    --fondo3: #222220;
+    --borde1: rgba(255, 255, 255, 0.08);
+    --borde2: rgba(255, 255, 255, 0.14);
+    --texto1: #f0ede8;
+    --texto2: #9e9b94;
+    --texto3: #5e5c57;
+    --resaltado1: #c17a3a;
+    --resaltado2: #7a5fc4;
+    --radio: 10px;
+    --radio-lg: 14px;
+}
+
+/* estilos base */
+body {
+    background: var(--fondo1);
+    color: var(--texto1);
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* barra de navegacion */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 58px;
+    border-bottom: 1px solid var(--borde1);
+    position: sticky; /* para que quede fija al hacer hacia abajo */
+    top: 0;
+    background: var(--fondo1);
+    z-index: 100; /* para que quede por encima de otros elementos al hacer hacia abajo */
+}
+
+/* logo */
+.nav-logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--texto1);
+    text-decoration: none;
+}
+
+.nav-logo span {
+    color: var(--resaltado1);
+}
+
+/* enlaces nav */
+.nav-enlaces {
+    display: flex;
+    gap: 2px;
+}
+
+.nav-enlaces a {
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--texto2);
+    padding: 7px 16px;
+    border-radius: var(--radio);
+}
+
+.nav-enlaces a:hover {
+    background: var(--fondo3);
+    color: var(--texto1);
+}
+
+/* botones nav */
+.nav-botones {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* boton con borde */
+.boton-borde {
+    font-size: 13px;
+    color: var(--texto2);
+    padding: 7px 16px;
+    border: 1px solid var(--borde2);
+    border-radius: var(--radio);
+    text-decoration: none;
+}
+
+.boton-borde:hover {
+    background: var(--fondo3);
+    color: var(--texto1);
+}
+
+/* seccion principal */
+.seccion-registro {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* tarjeta del formulario */
+.tarjeta-registro {
+    background: var(--fondo2);
+    border: 1px solid var(--borde2);
+    border-radius: 18px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* logo */
+.logo-registro {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--texto1);
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.logo-registro span {
+    color: var(--resaltado1);
+}
+
+/* titulo */
+.titulo-registro {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--texto1);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+/* subtitulo */
+.subtitulo-registro {
+    font-size: 13px;
+    color: var(--texto2);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+/* campos del formulario */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.campo label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--texto2);
+}
+
+.campo input {
+    background: var(--fondo3);
+    border: 1px solid var(--borde2);
+    border-radius: var(--radio);
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: "Times New Roman", serif;
+    color: var(--texto1);
+}
+
+.campo input::placeholder {
+    color: var(--texto3);
+}
+
+.campo input:focus {
+    border-color: var(--resaltado1);
+}
+
+/* boton crear cuenta */
+.boton-registro {
+    width: 100%;
+    background: var(--resaltado1);
+    color: #fff;
+    border: none;
+    border-radius: var(--radio);
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Times New Roman", serif;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-bottom: 20px;
+}
+
+.boton-registro:hover {
+    opacity: 0.88;
+}
+
+/* separador */
+.separador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.separador hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--borde1);
+}
+
+.separador span {
+    font-size: 11px;
+    color: var(--texto3);
+    white-space: nowrap;
+}
+
+/* enlace a login */
+.registro-enlace {
+    text-align: center;
+}
+
+.registro-enlace a {
+    font-size: 13px;
+    color: var(--resaltado1);
+    text-decoration: none;
+    font-weight: 500;  /* para que resalte un poco mas el enlace */
+}
+
+.registro-enlace a:hover {
+    text-decoration: underline;
+}
+
+/* footer */
+footer {
+    border-top: 1px solid var(--borde1);
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--texto3);
+    font-size: 12px;
+}

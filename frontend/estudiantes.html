@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HorizonHub — Estudiantes</title>
+    <link rel="stylesheet" href="estilos/pagina-inicio.css" />
+  </head>
+  <body>
+    <!-- barra de navegacion -->
+    <nav>
+      <!-- logo de la pagina -->
+      <a href="pagina-inicio.html" class="nav-logo">Horizon<span>Hub</span></a>
+
+      <!-- enlaces -->
+      <div class="nav-enlaces">
+        <a href="pagina-inicio.html">Inicio</a> <!-- te lleva al inicio -->
+        <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+        <a href="estudiantes.html" class="activo">Estudiantes</a> <!-- pagina actual -->
+        <a href="pagina-busqueda.html">Busqueda</a> <!-- te lleva a la pagina de busqueda -->
+      </div>
+
+      <!-- botones acceso -->
+      <div class="nav-botones" id="nav-botones"></div>
+    </nav>
+
+    <!-- hero -->
+    <div class="hero">
+      <!-- texto del hero -->
+      <div class="hero-texto">
+        <h1>Estudiantes</h1>
+        <p>Explora perfiles de estudiantes universitarios.</p>
+      </div>
+    </div>
+
+    <!-- seccion principal -->
+    <div class="seccion-principal">
+      <main class="contenido">
+        <div class="tarjetas" id="contenedor-tarjetas">
+          <!-- aqui se van a cargar las tarjetas de los estudiantes -->
+        </div>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <span>HorizonHub © 2026</span>
+    </footer>
+
+    <script src="scripts/estudiantes.js"></script>
+    <script src="scripts/navbar.js"></script>
+  </body>
+</html>

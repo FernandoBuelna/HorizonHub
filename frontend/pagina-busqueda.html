@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HorizonHub — Busqueda</title>
+    <link rel="stylesheet" href="estilos/pagina-inicio.css" />
+  </head>
+  <body>
+    <!-- barra de navegacion -->
+    <nav>
+      <!-- logo de la pagina -->
+      <a href="pagina-inicio.html" class="nav-logo">Horizon<span>Hub</span></a>
+
+      <!-- enlaces -->
+      <div class="nav-enlaces">
+        <a href="pagina-inicio.html">Inicio</a> <!-- te lleva al inicio -->
+        <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+        <a href="estudiantes.html">Estudiantes</a> <!-- te lleva a la pagina de estudiantes -->
+        <a href="pagina-busqueda.html" class="activo">Busqueda</a> <!-- pagina actual -->
+      </div>
+
+      <!-- botones acceso -->
+      <div class="nav-botones" id="nav-botones"></div>
+    </nav>
+
+    <!-- hero con buscador -->
+    <div class="hero">
+      <!-- texto del hero -->
+      <div class="hero-texto">
+        <h1>Busqueda</h1>
+        <p>Usa e/ para estudiantes, p/ para proyectos, t/ para tecnologias y habilidades.</p>
+      </div>
+
+      <!-- input de busqueda -->
+      <div class="hero-busqueda">
+        <span class="icono-busqueda">⌕</span>
+        <input type="text" id="input-busqueda" placeholder="e/fernando, p/inventario, t/javascript..." />
+      </div>
+    </div>
+
+    <!-- seccion principal -->
+    <div class="seccion-principal">
+      <main class="contenido">
+        <div class="tarjetas" id="contenedor-tarjetas">
+          <!-- aqui se van a cargar los resultados de la busqueda -->
+        </div>
+      </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <span>HorizonHub © 2026</span>
+    </footer>
+
+    <script src="scripts/busqueda.js"></script>
+    <script src="scripts/navbar.js"></script>
+  </body>
+</html>

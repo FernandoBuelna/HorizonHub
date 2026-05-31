@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HorizonHub — Perfil</title>
+    <link rel="stylesheet" href="estilos/perfil.css">
+</head>
+<body>
+
+    <!-- barra de navegacion -->
+    <nav>
+        <a href="pagina-inicio.html" class="nav-logo">Horizon<span>Hub</span></a> <!-- te lleva al inicio -->
+        <div class="nav-enlaces">
+            <a href="pagina-inicio.html">Inicio</a> <!-- te lleva al inicio -->
+            <a href="proyectos.html">Proyectos</a> <!-- te lleva a la pagina de proyectos -->
+            <a href="estudiantes.html">Estudiantes</a> <!-- te lleva a la pagina de estudiantes -->
+        </div>
+        <div class="nav-botones" id="nav-botones"></div>
+    </nav>
+    
+    <!-- secciones del perfil -->
+    <div class="perfil-layout">
+
+        <!-- sidebar -->
+        <aside class="perfil-sidebar">
+
+            <!-- avatar -->
+            <div class="perfil-avatar" id="perfil-avatar"></div>
+
+            <!-- datos -->
+            <div class="perfil-nombre" id="perfil-nombre"></div>
+            <div class="perfil-dato" id="perfil-carrera"></div>
+            <div class="perfil-dato" id="perfil-semestre"></div>
+            <div class="perfil-descripcion" id="perfil-descripcion"></div>
+            <a class="perfil-dato oculto" id="perfil-github" target="_blank"></a>
+            <a class="perfil-dato oculto" id="perfil-linkedin" target="_blank"></a>
+            <div class="perfil-dato" id="perfil-telefono"></div>
+
+            <div class="perfil-acciones">
+                <a class="boton-cv oculto" id="perfil-cv" target="_blank">Ver CV</a>            
+            </div>
+
+            <!-- separador -->
+            <div class="sidebar-separador"></div>
+
+            <!-- navegacion -->
+            <a href="#" class="sidebar-item activo" data-seccion="proyectos">Proyectos</a> <!-- es para abrir la seccion de proyectos y es la de defecto -->
+            <a href="#" class="sidebar-item" data-seccion="habilidades">Habilidades</a> <!-- es para abrir la seccion de habilidades -->
+            <a href="#" class="sidebar-item" data-seccion="experiencias">Experiencia</a> <!-- es para abrir la seccion de experiencias -->
+        </aside>
+
+        <!-- contenido principal -->
+        <main class="perfil-contenido">
+
+            <!-- seccion proyectos -->
+            <div class="seccion" id="seccion-proyectos">
+                <div class="seccion-header">
+                    <h2>Proyectos</h2>
+                    <!-- sin boton de agregar -->
+                </div>
+                <div id="lista-proyectos">
+                    <!-- aqui se van a cargar los proyectos del estudiante -->
+                </div>
+            </div>
+
+            <!-- seccion habilidades -->
+            <div class="seccion oculto" id="seccion-habilidades">
+                <div class="seccion-header">
+                    <h2>Habilidades</h2>
+                    <!-- sin boton de agregar -->
+                </div>
+                <div id="lista-habilidades">
+                    <!-- aqui se van a cargar las habilidades del estudiante -->
+                </div>
+            </div>
+
+            <!-- seccion experiencias -->
+            <div class="seccion oculto" id="seccion-experiencias">
+                <div class="seccion-header">
+                    <h2>Experiencia</h2>
+                    <!-- sin boton de agregar -->
+                </div>
+                <div id="lista-experiencias">
+                    <!-- aqui se van a cargar las experiencias del estudiante -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <span>HorizonHub © 2026</span>
+    </footer>
+
+    <script src="scripts/perfilPublico.js"></script>
+    <script src="scripts/navbar.js"></script>
+</body>
+</html>
